@@ -153,9 +153,9 @@
                     <p>We ran a simple linear regression on each of the three datasets (basic census predictors, all census predictors, and census predictors plus crime data)</p>
 
                     <h5>Results</h5> 
-                    <p>The linear regression performed poorly, wiht test-set R<sup>2</sup>'s of close to 0 for each of the three datasets.</p>
+                    <p>The linear regression performed poorly, with test-set R<sup>2</sup>'s of close to 0 for each of the three datasets.</p>
                     <h5>Observations</h5>
-                       <p>As the datasets became progressively larger, the linear regression's R<sup>2</sup> on the training set improved (of course). However, at the same time, the R<sup>2</sup> on the test set got lower (though remained very close to 0). This pattern is depicted at left. It suggests that the linear regression overfit the training data increasingly as more predictors are added. As a result, we decided to try several other linear regression models with methods to avoid overfitting (forward selection of predictors, PCA, LASSO, and Ridge).</p>
+                       <p>As the datasets became progressively larger, the linear regression's R<sup>2</sup> on the training set improved (of course). However, at the same time, the R<sup>2</sup> on the test set got lower (though remained very close to 0). This pattern is depicted at left. It suggests that the linear regression overfit the training data increasingly as more predictors are added. As a result, we decided to try several other linear regression models with methods to avoid overfitting (forward selection of predictors, PCA, LASSO, and Ridge). We considered the simple linear regression on the smallest predictor set (just basic census data) to be our base model (as previously mentioned, this model had a test-set R<sup>2</sup> close to 0).</p>
                    </div>
                    <div class="subscription">
                                 <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
