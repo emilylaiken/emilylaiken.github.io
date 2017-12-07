@@ -1,0 +1,535 @@
+<!doctype html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html lang="en">
+
+    <head>
+
+        <!-- Basic -->
+        <title>Predicting Crime in US Cities</title>
+
+        <!-- Define Charset -->
+        <meta charset="utf-8">
+
+        <!-- Responsive Metatag -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- Page Description and Author -->
+        <meta name="description" content="Sulfur - Responsive HTML5 Template">
+        <meta name="author" content="Shahriyar Ahmed">
+
+        <!-- Bootstrap CSS  -->
+        <link rel="stylesheet" href="asset/bootstrap/css/bootstrap.min.css" type="text/css">
+
+        <!-- Font Awesome CSS -->
+        <link rel="stylesheet" href="asset/font-awesome/css/font-awesome.min.css" type="text/css">
+
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="asset/css/owl.carousel.css" type="text/css">
+        <link rel="stylesheet" href="asset/css/owl.theme.css" type="text/css">
+        <link rel="stylesheet" href="asset/css/owl.transitions.css" type="text/css">
+        
+        <!-- Css3 Transitions Styles  -->
+        <link rel="stylesheet" type="text/css" href="asset/css/animate.css">
+        
+        <!-- Lightbox CSS -->
+        <link rel="stylesheet" type="text/css" href="asset/css/lightbox.css">
+
+        <!-- Sulfur CSS Styles  -->
+        <link rel="stylesheet" type="text/css" href="asset/css/style.css">
+
+        <!-- Responsive CSS Style -->
+        <link rel="stylesheet" type="text/css" href="asset/css/responsive.css">
+
+
+        <script src="asset/js/modernizrr.js"></script>
+
+
+    </head>
+
+    <body>
+    
+        <header class="clearfix">
+        
+        
+            <!-- Start  Logo & Naviagtion  -->
+            <div class="navbar navbar-default navbar-top">
+                <div class="container">
+                    <div class="navbar-collapse collapse">
+                        
+                        <!-- Start Navigation List -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a class="active" href="#">Home</a>
+                            </li>
+                            <li>
+                                <a href="#intro">Intro</a>
+                            </li>
+                            <li>
+                                <a href="#eda">EDA</a>
+                            </li>
+                            <li>
+                                <a href="#imputation">Pre-processing and Imputation</a>
+                            </li>
+                            <li>
+                                <a href="#models">Models</a>
+                            </li>
+                            <li>
+                                <a href="#conclusion">Conclusions</a>
+                            </li>
+
+                        </ul>
+                        <!-- End Navigation List -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Logo & Naviagtion -->
+            
+        </header>
+        
+        
+        <!-- Start Header Section -->
+        <div class="banner">
+            <div class="overlay">
+                <div class="container">
+                    <div class="intro-text">
+                        <h1>Predicting Crime in <span>US Cities</span></h1>
+                        <p>Emily Aiken, Molly Graepel, Nathan Little, Adriano Navarro</p>
+                        <a href="#intro" class="page-scroll btn btn-primary">Begin</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Header Section -->
+        
+        
+        <!-- Start About Us Section -->
+
+    <section id="intro" class="portfolio-section-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title text-center wow fadeInDown" data-wow-duration="2s" data-wow-delay="50ms">
+                        <h2>Introduction</h2>
+                    </div>                        
+                </div>
+            </div>
+                   <div class="about-text">
+                        <h4>Problem Statement</h4>
+                       <p>Our goal is to build a model to predict the number of murders per 100,000 in the 207 United States MSAs for which both crime and census data are available for the years 2006 to 2016. </p>
+                   </div>
+                   <br />
+
+                   <div class="about-text">
+                        <h4>Research</h4>
+                       <p>We began by conducting significant research on which characteristics of MSAs would be useful for predicting murder rates (and crime rates more
+                        generally). We found the following two websites particularly useful as sources of inspiration: </p>
+                        <div class="about-list">
+                                <ul>
+                                   <li><i class="fa fa-check-square"></i><a href="http://www.murderdata.org/2017/08/maps-serial-killer-algorithm-available.html">Murder Accountability Project</a></li>
+                                   <li><i class="fa fa-check-square"></i><a href="https://fivethirtyeight.com/features/gun-deaths/">Five Thirty Eight</a></li>
+                                </ul>
+                        </div>
+                        <p>Based on our research, we chose to use the following census predictors that are both proven to be associated with crime levels and available through US census data: </p>
+                        <div class="about-list">
+                                <ul>
+                                   <li><i class="fa fa-check-square"></i>Total population</li>
+                                   <li><i class="fa fa-check-square"></i>Age</li>
+                                   <li><i class="fa fa-check-square"></i>Sex</li>
+                                   <li><i class="fa fa-check-square"></i>Race</li>
+                                   <li><i class="fa fa-check-square"></i>Language spoken at home</li>
+                                   <li><i class="fa fa-check-square"></i>Marital status</li>
+                                   <li><i class="fa fa-check-square"></i>Educational attainment</li>
+                                   <li><i class="fa fa-check-square"></i>Income</li>
+                                   <li><i class="fa fa-check-square"></i>Poverty status</li>
+                                   <li><i class="fa fa-check-square"></i>Citizenship status</li>
+                                   <li><i class="fa fa-check-square"></i>Place of birth</li>
+                                   <li><i class="fa fa-check-square"></i>School enrollment status</li>
+                                </ul>
+                        </div>
+                        <p>It is important to note that, since we are using the FBI data, we are predicting arrests rather than crime. Arrests disproportionately affect people of color, so a model that predicts arrests may show race as an important predictor, whereas a model that predicts crime may not. </p>
+
+                   </div>
+                   <br />
+
+                   <div class="about-text">
+                        <h4>Data Sources and Methods</h4>
+                       <p>We used two data sources: data on crime levels available from the <a href="https://ucr.fbi.gov/">FBI</a> and demographic and school enrollment data from <a href=" https:// factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml?refresh=t">American Community Surveys</a> in the past decade. Data on crimes was scraped using Beautiful Soup 4, while census and school enrollment data were downloaded in CSV format. All the data exists at the level of “Metropolitan Statistical Area,” a geographical region with a relatively high population density at its core and close economic ties throughout the area. Examining data at this level presents several obstacles. New delineations for the country’s MSAs can be generated every year, with major changes occurring with every new census, (eg. major changes occurred to MSA definitions in 2010). Additionally, naming conventions for specific MSAs can vary over time or by dataset (e.g., Sacramento--Arden-Arcade--Roseville vs. Sacramento--Roseville--Arden-Arcade). Therefore, instead of matching MSAs via their names, we tracked MSAs through geographical ID's recorded along with the data. The ACS data were downloaded in csv form, and we created a function to extract geographic data and sampling estimates for all survey questions over the eleven-year period. </p>
+    <p>The crime data were collected by scraping the FBI’s website. The same issue of MSA labeling discrepancies existed in the FBI data, however, there were no unique identifiers similar to “GEO.id2” to match MSAs from year to year. Instead, we looked back to the ACS data and found that the “GEO.id2” codes matched up with a combination of the first city of each MSA and the first state. With a bit of character cleaning, this labeling combination created a unique field for each MSA and was used to join the FBI across years and also to the ACS data. We are aware that we dropped some MSAs in our matching process because the first city listed can vary.  However, we found that in the vast majority of cases, the largest city is listed first and is likely to remain in the first position from year to year. We also dropped MSAs that did not have FBI crime data for all eleven years -- we wanted as consistent data as possible because these datasets contained our target variable (murders). After joining the ACS data to FBI data and removing incomplete crime data, we were left with 207 MSAs (there are about 340 MSAs from 2006-2016). We decided this loss of ~30 percent of available data was worth the improved quality of the remaining data. Because we were strict in our matching process, we are confident that all our MSAs are accurate across time and datasets.</p>
+
+                   </div>
+            </div>
+        </div>
+    </section>
+        
+        
+        
+        <!-- Start Portfolio Section -->
+        <section id="eda" class="about-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title text-center wow fadeInDown" data-wow-duration="2s" data-wow-delay="50ms">
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <h2>Exploratory Data Analysis</h2>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                        <!-- Start Portfolio items -->
+                        <ul id="portfolio-list">
+                            <li class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="300ms">
+                                <div class="portfolio-item">
+                                    <img src="asset/images/eda1.png" class="img-responsive" alt="" />
+                                    <div class="portfolio-caption">
+                                        <a href="eda.html#crimes-over-time">
+                                            <h4>Crimes Over Time</h4>
+                                            <p>Have the total number of crimes in MSAs increased on decreased in the past decade?</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="300ms">
+                                <div class="portfolio-item">
+                                    <img src="asset/images/eda2.png" class="img-responsive" alt="" />
+                                    <div class="portfolio-caption">
+                                        <a href="eda.html#crimes-by-type">
+                                            <h4>Crimes by Type</h4>
+                                            <p>Which crimes happen the most often?</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="300ms">
+                                <div class="portfolio-item">
+                                    <img src="asset/images/eda5.png" class="img-responsive" alt="" />
+                                    <div class="portfolio-caption">
+                                        <a href="eda.html#murders-by-msa">
+                                            <h4>Murders by MSA</h4>
+                                            <p>Which MSAs have the highest average annual murder rates?</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="300ms">
+                                <div class="portfolio-item">
+                                    <img src="asset/images/eda3.png" class="img-responsive" alt="" />
+                                    <div class="portfolio-caption">
+                                        <a href="eda.html#murder-dist">
+                                            <h4>Distribution of Murders</h4>
+                                            <p>What is the distribution of murder rates in MSAs?</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="300ms">
+                                <div class="portfolio-item">
+                                    <img src="asset/images/eda4.png" class="img-responsive" alt="" />
+                                    <div class="portfolio-caption">
+                                        <a href="eda.html#crime-corr">
+                                            <h4>Correlations between crime rates</h4>
+                                            <p>How are the rates of different crimes in MSAs correlated with each other?</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="300ms">
+                                <div class="portfolio-item">
+                                    <img src="asset/images/eda6.png" class="img-responsive" alt="" />
+                                    <div class="portfolio-caption">
+                                        <a href="eda.html#census-corr">
+                                            <h4>Correlations between census predictors</h4>
+                                            <p>Which census data features are collinear with one another?</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="300ms">
+                                <div class="portfolio-item">
+                                </div>
+                            </li>
+                            <li class="wow fadeInLeft" data-wow-duration="2s" data-wow-delay="300ms" colspan=2>
+                                <div class="portfolio-item">
+                                    <img src="asset/images/eda7.png" class="img-responsive" alt="" />
+                                    <div class="portfolio-caption">
+                                        <a href="eda.html#census-murder-corr">
+                                            <h4>Correlations between census predictors and murder rates</h4>
+                                            <p>Which census features are the best predictors of murder rate in an MSA?</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                        <!-- End Portfolio items -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Portfolio Section -->
+
+<br />
+<br />
+
+                <!-- Start About Us Section -->
+
+    <section id="imputation" class="portfolio-section-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title text-center wow fadeInDown" data-wow-duration="2s" data-wow-delay="50ms">
+                        <h2>Pre-Processing and Imputation</h2>
+                    </div>                        
+                </div>
+            </div>
+                    <h4>Missingness</h4>
+                   <div class="about-text">
+                       <p>There was significant missingness in many features in the census data, as not all features seem to be recorded in each year. All cesnsus 
+                        predictors besides age data had some ammount of missingness, typically between 1 and 3 years (or around 400 and 1200 observations). We tried
+                        three strategies for imputing missing data: </p> 
+                        <div class="about-list">
+                            <ul>
+                               <li><i class="fa fa-check-square"></i>Dropping missing data</li>
+                               <li><i class="fa fa-check-square"></i>Mean imputation</li>
+                               <li><i class="fa fa-check-square"></i>Model-based imputation</li>
+                           </ul>
+                        </div>
+                       <br />
+                       <p> We quickly eliminated dropping missing data entirely because the data set included so much missingness. We found that our models had similar
+                        performances on mean-imputed and model-imputed data sets, and decided to use the model-imputed data set for our final analysis. </p> 
+                   </div>
+
+                   <br />
+
+                   <h4>Model-Based Imputation</h4>
+                   <div class="about-text">
+                       <p>We used an iterative model-based imputation strategy. More specifically, we imputed the missing data for each census predictor with missingness 
+                        one-by-one, in alphabetical order. For each predictor with missingness, we used all predictors without missingness to build a simple linear 
+                        regression model to predict the value for the feature with missingness. Most of these models had R<sup>2</sup> values on the training set between 0.9 and 1. The imputation process was iterative, meaning we used the data imputed for one predictor in training the imputation model for other predictors. </p> 
+                   </div>
+
+                   <br />
+
+                   <h4>Standardization</h4>
+                   <div class="about-text">
+                       <p>After imputation, we standardized all predictors in the data sets (both predictors from the census data and data on crime rates for crimes other
+                        than murder) to mean 0 and standard deviation 1. We chose to standardize the data rather than normalize it because it is more accomodating of outliers, and there are outliers in the dataset (particularly when it comes to rates of crimes other than murder). </p> 
+                   </div>
+                   
+                
+                
+                
+            </div>
+        </div>
+    </section>
+        
+        
+        <!-- Start Service Section -->
+        <section id="models">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title text-center wow fadeInDown" data-wow-duration="2s" data-wow-delay="50ms">
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <h2>Predictive Models</h2>
+                            <p>We tested 8 different models on 3 different sets of predictors. Read a summary of our modelling approach 
+                                <a href='models.html'>here.</a></p>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="services-post">
+				            <a href="models.html#linear-regression"><i class="fa fa-line-chart"></i></a>
+				            <h2>Linear Regression</h2>
+							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
+				        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="services-post">
+				            <a href="models.html#polynomial-regression"><i class="fa fa-arrow-circle-right"></i></a>
+				            <h2>Linear Regression (Forward Selection)</h2>
+							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
+				        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="services-post">
+				            <a href="models.html#linear-regression-pca"><i class="fa fa-bullseye"></i></a>
+				            <h2>Linear Regression (PCA)</h2>
+							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
+				        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="services-post">
+				            <a href="models.html#lasso"><i class="fa fa-bar-chart"></i></a>
+				            <h2>LASSO Regression</h2>
+							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
+				        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="services-post">
+				            <a href="models.html#ridge"><i class="fa fa-area-chart"></i></a>
+				            <h2>Ridge Regression</h2>
+							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
+				        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="services-post">
+				            <a href="models.html#tree"><i class="fa fa-code-fork"></i></a>
+				            <h2>Regression Tree</h2>
+							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
+				        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="services-post">
+				            <a href="models.html#random-forest"><i class="fa fa-tree"></i></a>
+				            <h2>Random Forest</h2>
+							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
+				        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="services-post">
+				            <a href="models.html#knn"><i class="fa fa-list-ol"></i></a>
+				            <h2>k-NN</h2>
+							<p>Donec odio. Quisque volutpat mattis eros. Nullam malesuada </p>
+				        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+    <section id="conclusion" class="portfolio-section-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title text-center wow fadeInDown" data-wow-duration="2s" data-wow-delay="50ms">
+                        <h2>Conclusions</h2>
+                    </div>                        
+                </div>
+            </div>
+                   <div class="about-text">
+                        <h4>Summary of Results</h4>
+                        <p> Our baseline model, a linear regression using only basic census predictors, had a test-set R<sup>2</sup> of XX. Our best model predicting on only census data, XX, had a test-set R<sup>2</sup> of XX. In contrast, our best model using census data plus rates of crimes besides murder had a test-set R<sup>2</sup> of XX. On the whole, the best performing models across all data sets were XX and XX. </p>
+                        <br />
+
+                        <h4>Discussion</h4>
+                       <p>Predicting crime rates using only census data is difficult--none of our models scored a test-set R<sup>2</sup> of more than XX on the data set containing only census data. The rates of crimes other than murder in a particular MSA are much better at predicting murder rates than that MSA's census data. Both sets of predictors could be useful in certain scenarios (which is why we chose to explore both in our project), but we recognize that the model with higher utility is one that does not rely on data about other crimes in order to predict murder rates, as typically one would not have access to information on other crime rates at the time of prediction. </p>
+                       <p>It is also possible that we in fact incorporated too many census predictors, allowing our models to overfit somewhat. We attempt to remedy this issue through forward selection of predictors or PCA in linear regression, regularization via LASSO and Ridge regression, and cross-validation in the k-NN, regression tree, and random forest models. </p>
+                       <p>Future work: Experiment with a bunch of different transformations of predictors we had: doing more stuff on a per-capita basis instead of
+                        raw numbers, interaction terms. Do more to think about look-ahead bias--predict with a shifting time window. Did use year as a predictor to
+                        capture any trend in crime over time. Could have done more time series analysis but that's beyond the scope of </p>
+                        <p> Previous year's crime would be the best predictive model </p>
+                        <p> Other useful predictors: gun laws and law enforcement </p>
+                   </div>
+                   
+                   <div class="about-list">
+                       <h4>Potential Future Work</h4>
+                       <ul>
+                           <li><i class="fa fa-check-square"></i>Consider using per-capita census predictors rather than absolute data to reduce multicollinearity among predictors.</li>
+                           <li><i class="fa fa-check-square"></i>Consider incorporating interaction terms among predictors.</li>
+                           <li><i class="fa fa-check-square"></i>Consider building training sets using a shifting time window to avoid look-ahead bias.</li>
+                           <li><i class="fa fa-check-square"></i>Consider a time series model using rates of crime in an MSA in previous years to predict this year's rate.</li>
+                           <li><i class="fa fa-check-square"></i>Consider other predictors not available in census data, particularly regarding gun laws and presence of law enforcement.</li>
+                       </ul>                 
+               </div>  
+            </div>
+        </div>
+    </section>
+
+        
+        
+        <!-- Start Footer Section -->
+        <section id="footer-section" class="footer-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="section-heading-2">
+                            <h3 class="section-title">
+                                <span>Data Sources</span>
+                            </h3>
+                        </div>
+                        
+                        <div class="footer-address">
+                            <ul>
+                                <li class="footer-contact">Crime data: FBI </li>
+                                <li class="footer-contact">Census data: Census</li>
+                            </ul>
+                        </div>
+                    </div><!--/.col-md-3 -->
+                    
+                    
+                    <div class="col-md-3">
+                        <div class="section-heading-2">
+                            <h3 class="section-title">
+                                <span>Group Members</span>
+                            </h3>
+                        </div>
+                        
+                        <div class="footer-address">
+                            <ul>
+                                <li class="footer-contact">Emily Aiken</li>
+                                <li class="footer-contact">Molly Graepel</li>
+                                <li class="footer-contact">Nathan Little</li>
+                                <li class="footer-contact">Adriano Navarro</li>
+                            </ul>
+                        </div>
+                    </div><!--/.col-md-3 -->
+                    
+                    
+                    <div class="col-md-3">
+                        <div class="section-heading-2">
+                            <h3 class="section-title">
+                                <span>Class Information</span>
+                            </h3>
+                        </div>
+                        <div class="footer-address">
+                            <ul>
+                                <li class="footer-contact">CS109A</li>
+                                <li class="footer-contact">Fall 2017</li>
+                                <li class="footer-contact">Final Project</li>
+                            </ul>
+                        </div>
+                        
+                     
+                    </div><!--/.col-md-3 -->
+
+                     <div class="col-md-3">
+                        <div class="subscription">
+                                <a href = "#"> <input type="submit" class="btn btn-primary" value="Back to Top"> </a>
+                        </div>
+                    </div>
+                </div><!--/.row -->
+            </div><!-- /.container -->
+        </section>
+        <!-- End Footer Section -->
+        
+        
+        
+       <!-- Sulfur JS File -->
+        <script src="asset/js/jquery-2.1.3.min.js"></script>
+        <script src="asset/js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="asset/bootstrap/js/bootstrap.min.js"></script>
+        <script src="asset/js/owl.carousel.min.js"></script>
+        <script src="asset/js/jquery.appear.js"></script>
+        <script src="asset/js/jquery.fitvids.js"></script>
+        <script src="asset/js/jquery.nicescroll.min.js"></script>
+        <script src="asset/js/lightbox.min.js"></script>
+        <script src="asset/js/count-to.js"></script>
+        <script src="asset/js/styleswitcher.js"></script>
+        
+        <script src="asset/js/map.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script src="asset/js/script.js"></script> 
+        
+    
+    </body>
+</html>

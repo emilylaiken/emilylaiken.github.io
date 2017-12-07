@@ -1,0 +1,491 @@
+<!doctype html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html lang="en">
+
+    <head>
+
+        <!-- Basic -->
+        <title>Models</title>
+
+        <!-- Define Charset -->
+        <meta charset="utf-8">
+
+        <!-- Responsive Metatag -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- Page Description and Author -->
+        <meta name="description" content="Sulfur - Responsive HTML5 Template">
+        <meta name="author" content="Shahriyar Ahmed">
+
+        <!-- Bootstrap CSS  -->
+        <link rel="stylesheet" href="asset/bootstrap/css/bootstrap.min.css" type="text/css">
+
+        <!-- Font Awesome CSS -->
+        <link rel="stylesheet" href="asset/font-awesome/css/font-awesome.min.css" type="text/css">
+
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="asset/css/owl.carousel.css" type="text/css">
+        <link rel="stylesheet" href="asset/css/owl.theme.css" type="text/css">
+        <link rel="stylesheet" href="asset/css/owl.transitions.css" type="text/css">
+        
+        <!-- Css3 Transitions Styles  -->
+        <link rel="stylesheet" type="text/css" href="asset/css/animate.css">
+        
+        <!-- Lightbox CSS -->
+        <link rel="stylesheet" type="text/css" href="asset/css/lightbox.css">
+
+        <!-- Sulfur CSS Styles  -->
+        <link rel="stylesheet" type="text/css" href="asset/css/style.css">
+
+        <!-- Responsive CSS Style -->
+        <link rel="stylesheet" type="text/css" href="asset/css/responsive.css">
+
+
+        <script src="asset/js/modernizrr.js"></script>
+
+        
+
+    </head>
+
+    <body>
+        <header class="clearfix">
+        
+        
+            <!-- Start  Logo & Naviagtion  -->
+            <div class="navbar navbar-default navbar-top">
+                <div class="container">
+                    <div class="navbar-collapse collapse">
+                        
+                        <!-- Start Navigation List -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="index.html#intro">Intro</a>
+                            </li>
+                            <li>
+                                <a href = "index.html#eda" href="#eda">EDA</a>
+                            </li>
+                            <li>
+                                <a href="index.html#imputation">Pre-processing and Imputation</a>
+                            </li>
+                            <li>
+                                <a class="active" href="index.html#models">Models</a>
+                            </li>
+                            <li>
+                                <a href="index.html#conclusion">Conclusions</a>
+                            </li>
+
+                        </ul>
+                        <!-- End Navigation List -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Logo & Naviagtion -->
+            
+        </header>
+        
+        
+        <!-- Start Header Section -->
+        <div class="page-header">
+            <div class="overlay">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>Predictive Models</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Header Section -->
+        
+        
+        <!-- Start About Us Section -->
+    <br />
+    <br />
+    <br />
+    <br />
+      <section id="linear-regression" class="about-section">
+        <div class="container">
+            <div class="row">
+               <div class="col-md-5">
+                   <div class="about-img">
+                       <img src="asset/images/eda1.png" class="img-responsive" alt="About images">
+                   </div>
+               </div>
+               <div class="col-md-7">
+                    <h2>Summary of Modeling Approach and Trajectory</h2>
+                    <br />
+                   <div class="about-text">
+                       <p>We tested each model on three different data sets: a set of basic census predictors (population of MSA, ages distribution of MSA, gender distribution of MSA, and median income of MSA), a set of all census predictors, and a set of all census predictors plus rates of other crimes. 
+                        In each case, we found that rates of other crimes were (as one would expect) much more powerful predictors of murder rate than predictors 
+                        from the census data. Our base model was a linear regression on only the basic census data predictors, which had a test-set R2 of close to 0, 
+                        meaning it has no more predictive power than predicting the average murder rate for each MSA. The same simple linear regression performed slightly
+                        better when using all census predictors and significantly better when using all census predictors plus other crime data. A similar pattern was 
+                        observed in the other linear regression-style models we tried, including forward selection of predictors from the simple linear regression, a 
+                        linear regression on PCA components, LASSO regression, and Ridge regression. We also tried three quite different styles of models: k-NN 
+                        regression, a regression tree, and a random forrest of regression trees. Ultimately, our most predictive model was XX, which scored a test R2 of 
+                        XX using only basic census predictors, XX using all census predictors, and XX using all census predictors plus other crime data.</p>
+                   </div>
+
+               </div>   
+            </div>
+        </div>
+    </section>
+
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+    <section id="linear-regression" class="portfolio-section-1">
+        <div class="container">
+            <div class="row">
+               <div class="col-md-5">
+                   <div class="about-img">
+                       <img src="asset/images/eda1.png" class="img-responsive" alt="About images">
+                   </div>
+               </div>
+               <div class="col-md-7">
+                    <h4>Linear Regression</h4>
+                   <div class="about-text">
+                       <p>With the basic predictors, R2 of 0.015 on the training set and XX on the test set. With all census data, .081 on the training set. 
+                        All crimes: .565 on the training set. Stepwise forward selection: basic - just population (HC_01_EST_VC01); on census chose 
+                        VC35 (XX), on all: year, robbery aggravated assault, burglary.  Backward: basic - nothing, census - nothing, robbery, VC41, aggravated assault,
+                        burglary. With selected predictors. r2 is 0 for both for basic, for census is 0 for test and 0.1 for all is .52 on train and .50 for test. 
+                        For backward, .51 for train and .50 for test.</p>
+                   </div>
+                   <div class="subscription">
+                                <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
+                    </div>
+                   
+               </div>   
+            </div>
+        </div>
+    </section>
+
+    <br />
+    <br />
+    <br />
+
+    <section id="polynomial-regression" class="about-section">
+        <div class="container">
+            <div class="row">
+               <div class="col-md-5">
+                   <div class="about-img">
+                       <img src="asset/images/eda2.png" class="img-responsive" alt="About images">
+                   </div>
+               </div>
+               <div class="col-md-7">
+                    <h4>Linear Regression with Forward Selection</h4>
+                   <div class="about-text">
+                       <p></p>
+                   </div>
+                   <div class="subscription">
+                                <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
+                    </div>
+                   
+                   
+               </div>   
+            </div>
+        </div>
+    </section>
+
+    <br />
+    <br />
+    <br />
+    
+    <section id="linear-regression-pca" class="portfolio-section-1">
+        <div class="container">
+            <div class="row">
+               <div class="col-md-5">
+                   <div class="about-img">
+                       <img src="asset/images/eda5.png" class="img-responsive" alt="About images">
+                   </div>
+               </div>
+               <div class="col-md-7">
+                    <h4>Linear Regression on PCA</h4>
+                   <div class="about-text">
+                       <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
+                       <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                   </div>
+                   <div class="subscription">
+                                <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
+                    </div>
+                   
+                   
+               </div>   
+            </div>
+        </div>
+    </section>
+
+    <br />
+    <br />
+    <br />
+     <section id="lasso" class="about-section">
+        <div class="container">
+            <div class="row">
+               <div class="col-md-5">
+                   <div class="about-img">
+                       <img src="asset/images/lasso.png" class="img-responsive" alt="About images">
+                   </div>
+               </div>
+               <div class="col-md-7">
+                    <h3>LASSO Regression</h3>
+                    <br />
+                   <div class="about-text">
+                    <h5>Process</h5>
+                    <p>We ran a LASSO regression using cross-validation to determine the optimal penalty parameter. </p>
+
+                    <h5>Results</h5> 
+                    <p>Overall, LASSO regression was the best of all the models we tested, scoring test-set R<sup>2</sup>'s of .006 (basic census data), .01 (all census data), and .5 (all census and crime data), respectively--see the figure at left for more detail.</p>
+                    <h5>Observations</h5>
+                       <p>LASSO regression shrunk the coefficients of many predictors in each dataset to 0, which was useful for understanding which predictors are significant. In the basic dataset, the significant predictors included age, total population of the MSA, income, and year. The additional non-zero predictors in the dataset of all census predictors were enrollment of young adults in college or graduate school, enrollment of primary school-aged children, poverty status, and the educational attainment level of adults in the population. In the final dataset, which included rates of crimes other than murder, the significant crime-related predictors were rates of robbery, burglary, aggravated assault, violent crime, property crime, and rape (that is, the rates of each crime except for larceny-theft).</p>
+                   </div>
+                   <div class="subscription">
+                                <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
+                    </div>
+                   
+                   
+               </div>   
+            </div>
+        </div>
+    </section>
+
+    <br />
+    <br />
+    <br />
+
+    <section id="ridge" class="portfolio-section-1">
+        <div class="container">
+            <div class="row">
+               <div class="col-md-5">
+                   <div class="about-img">
+                       <img src="asset/images/ridge.png" class="img-responsive" alt="About images">
+                   </div>
+               </div>
+               <div class="col-md-7">
+                    <h3>Ridge Regression</h3>
+                   <br />
+                   <div class="about-text">
+                    <h5>Process</h5>
+                    <p>We ran a Ridge regression using cross-validation to determine the optimal penalty parameter. </p>
+
+                    <h5>Results</h5> 
+                    <p>Ridge regression did not perform quite as well as LASSO, scoring test-set R<sup>2</sup>'s of .002 (basic census data), -.15 (all census data), and .46 (all census and crime data).
+                    <h5>Observations</h5>
+                       <p>It seems that one of the reason Ridge may not score as well as LASSO on the test sets is that is overfits the data more, as suggested by the larger gaps between scores on training and test sets (as compared with LASSO). This tendency to overfit is also consistent with the fact that Ridge does not shrink coefficients to 0 while LASSO does--our dataset has many predictors, and therefore regressions that use all of them are more likely to overfit. The negative R<sup>2</sup> value on the test set for the dataset with all census predictors is also consistent with overfitting (as seen in earlier models such as XX).</p>
+                   </div>
+                   <div class="subscription">
+                                <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
+                    </div>
+                   
+                   
+               </div>   
+            </div>
+        </div>
+    </section>
+
+    <br />
+    <br />
+    <br />
+    
+    <section id="tree" class="about-section">
+        <div class="container">
+            <div class="row">
+               <div class="col-md-5">
+                   <div class="about-img">
+                       <img src="asset/images/tree.png" class="img-responsive" alt="About images">
+                   </div>
+               </div>
+               <div class="col-md-7">
+                    <h3>Regression Tree</h3>
+                   <br />
+                   <div class="about-text">
+                    <h5>Process</h5>
+                    <p>We built a single regression tree, using cross validation to determine the optimal depth of the tree. The results of the cross-validation procedure for one dataset (all census predictors) are depicted in the figure at left. The optimal tree depth was determined to be 3 on each of the datasets. We didn’t use probabilistic feature dropout nor cross validation to choose the maximum number of features. We opted to keep this model simple given that random forest incorporates these ensemble complexities in a more useful way.</p>
+
+                    <h5>Results</h5> 
+                    <p>The single regression tree performed quite poorly compared to the linear regression-based models: the test-set $R<sup>2</sup> value for both the census predictor datasets (the basic set and the full set) were below 0. For the dataset with all predictors (census and crime), the single regression tree had a test-set $R<sup>2</sup> of .44.
+                    <h5>Observations</h5>
+                       <p>SOMETHING HERE.</p>
+                   </div>
+                   <div class="subscription">
+                                <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
+                    </div>
+                   
+                   
+               </div>   
+            </div>
+        </div>
+    </section>
+
+    <br />
+    <br />
+    <br />
+
+    <section id="random-forest" class="portfolio-section-1">
+        <div class="container">
+            <div class="row">
+               <div class="col-md-5">
+                   <div class="about-img">
+                       <img src="asset/images/forest1.png" class="img-responsive" alt="About images">
+                   </div>
+               </div>
+               <div class="col-md-7">
+                    <h3>Random Forest</h3>
+                   <br />
+                   <div class="about-text">
+                    <h5>Process</h5>
+                    <p>Building on the single regression tree we had already built, we built a random forest of regression trees, using cross validation to determine the optimal ensemble size one each of thre three datasets. This cross validation process (for the dataset with all predictors, both crime and census), is depicted in the figure at left.</p>
+
+                    <h5>Results</h5> 
+                    <p>Like the single regression tree, the random forest performed quite poorly on all datasets except the one including data for crimes besides murder. Again, both the test-set $R<sup>2</sup> for both the basic and full set of census predictors was below 0 (though not quite as far below as for the single tree). When all predictors, including crime levels, were used, the test set $R<sup>2</sup> was still only .27. 
+                    <h5>Observations</h5>
+                       <p>Although the random forest performed poorly, it did give us some insight into which predictors are the most important. XXX</p>
+                   </div>
+                   <div class="subscription">
+                                <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
+                    </div>
+                   
+                   
+               </div>    
+            </div>
+        </div>
+    </section>
+
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+    <section id="knn" class="about-section">
+        <div class="container">
+            <div class="row">
+               <div class="col-md-5">
+                   <div class="about-img">
+                       <img src="asset/images/knn.png" class="img-responsive" alt="About images">
+                   </div>
+               </div>
+               <div class="col-md-7">
+                    <h3>k-NN Regression</h3>
+                   <br />
+                   <div class="about-text">
+                    <h5>Process</h5>
+                    <p>We ran a k-NN regression using all predictors available in each dataset, using cross-validation to determine the optimal number of neighbors. For the dataset containing only basic census predictors, this meant 80 neighbors, for the one containing all census predictors, it was 89, and for the one containing all census predictors and crimes besides murder, it was only 9.</p>
+
+                    <h5>Results</h5> 
+                    <p>The k-NN regression performed the best of all models on the basic census predictors, reaching a test-set R<sup>2</sup> of 0.015. It also performed very well on the dataset with all census predictors, with a test-set R<sup>2</sup> of .012 (though the fact that the test-set R<sup>2</sup> was lower when using more predictors suggests overfitting). Relative to other models, the k-NN regression didn't do as well on the full dataset including both census predictors and crimes other than murder, with a test-set R<sup>2</sup> of only .31. The figure at left depicts the scores of each k-NN model on the respective training and test sets.
+                    <h5>Observations</h5>
+                       <p>COMMENT ON NUMS OF NEIGHBORS</p>
+                   </div>
+                   <div class="subscription">
+                                <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
+                    </div>
+                   
+                   
+               </div>     
+            </div>
+        </div>
+    </section>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    
+        
+        
+        <!-- Start Footer Section -->
+        <section id="footer-section" class="footer-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="section-heading-2">
+                            <h3 class="section-title">
+                                <span>Data Sources</span>
+                            </h3>
+                        </div>
+                        
+                        <div class="footer-address">
+                            <ul>
+                                <li class="footer-contact">Crime data: FBI </li>
+                                <li class="footer-contact">Census data: Census</li>
+                            </ul>
+                        </div>
+                    </div><!--/.col-md-3 -->
+                    
+                    
+                    <div class="col-md-3">
+                        <div class="section-heading-2">
+                            <h3 class="section-title">
+                                <span>Group Members</span>
+                            </h3>
+                        </div>
+                        
+                        <div class="footer-address">
+                            <ul>
+                                <li class="footer-contact">Emily Aiken</li>
+                                <li class="footer-contact">Molly Graepel</li>
+                                <li class="footer-contact">Nathan Little</li>
+                                <li class="footer-contact">Adriano Navarro</li>
+                            </ul>
+                        </div>
+                    </div><!--/.col-md-3 -->
+                    
+                    
+                    <div class="col-md-3">
+                        <div class="section-heading-2">
+                            <h3 class="section-title">
+                                <span>Class Information</span>
+                            </h3>
+                        </div>
+                        <div class="footer-address">
+                            <ul>
+                                <li class="footer-contact">CS109A</li>
+                                <li class="footer-contact">Fall 2017</li>
+                                <li class="footer-contact">Final Project</li>
+                            </ul>
+                        </div>
+                        
+                     
+                    </div><!--/.col-md-3 -->
+
+                     <div class="col-md-3">
+                        <div class="subscription">
+                                <a href = "index.html"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
+                        </div>
+                    </div>
+                </div><!--/.row -->
+            </div><!-- /.container -->
+        </section>
+        <!-- End Footer Section -->
+        
+        
+        
+        
+     <!-- Sulfur JS File -->
+        <script src="asset/js/jquery-2.1.3.min.js"></script>
+        <script src="asset/js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="asset/bootstrap/js/bootstrap.min.js"></script>
+        <script src="asset/js/owl.carousel.min.js"></script>
+        <script src="asset/js/jquery.appear.js"></script>
+        <script src="asset/js/jquery.fitvids.js"></script>
+        <script src="asset/js/jquery.nicescroll.min.js"></script>
+        <script src="asset/js/lightbox.min.js"></script>
+        <script src="asset/js/count-to.js"></script>
+        <script src="asset/js/styleswitcher.js"></script>
+        
+        <script src="asset/js/map.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script src="asset/js/script.js"></script>
+   
+        
+    
+    </body>
+</html>
