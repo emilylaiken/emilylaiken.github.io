@@ -424,11 +424,6 @@
                         <h4>Discussion</h4>
                        <p>Predicting crime rates using only census data is difficult--none of our models scored a test-set R<sup>2</sup> of more than XX on the data set containing only census data. The rates of crimes other than murder in a particular MSA are much better at predicting murder rates than that MSA's census data. Both sets of predictors could be useful in certain scenarios (which is why we chose to explore both in our project), but we recognize that the model with higher utility is one that does not rely on data about other crimes in order to predict murder rates, as typically one would not have access to information on other crime rates at the time of prediction. </p>
                        <p>It is also possible that we in fact incorporated too many census predictors, allowing our models to overfit somewhat. We attempt to remedy this issue through forward selection of predictors or PCA in linear regression, regularization via LASSO and Ridge regression, and cross-validation in the k-NN, regression tree, and random forest models. </p>
-                       <p>Future work: Experiment with a bunch of different transformations of predictors we had: doing more stuff on a per-capita basis instead of
-                        raw numbers, interaction terms. Do more to think about look-ahead bias--predict with a shifting time window. Did use year as a predictor to
-                        capture any trend in crime over time. Could have done more time series analysis but that's beyond the scope of </p>
-                        <p> Previous year's crime would be the best predictive model </p>
-                        <p> Other useful predictors: gun laws and law enforcement </p>
                    </div>
                    
                    <div class="about-list">
