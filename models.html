@@ -221,7 +221,7 @@
                     <p>For each dataset, we generated the minimum set of PCA components that explained 90% of the variance. We then ran a linear regression on these components.</p>
 
                     <h5>Results</h5> 
-                    <p>On the set of basic census predictors, the linear regression with PCA peformed poorly, with a test-set R<sup>2</sup> of -.07. However, on the sets of all census predictors and census predicotrs plus crimes it did well relative to other models, with test-set R<sup>2</sup>'s of .017 and .42, respectively.</p>
+                    <p>On the set of basic census predictors, the linear regression with PCA peformed poorly, with a test-set R<sup>2</sup> of -.07. However, on the sets of all census predictors and census predictors plus crimes it did well relative to other models, with test-set R<sup>2</sup>'s of .017 and .42, respectively.</p>
                     <h5>Observations</h5> 
                        <p>PCA does the best of all models on the set of all census predictors. The fact that it performs relatively badly on basic census predictors suggests that these basic predictors are just not highly correlated with murder rates. The scatterplot at right depicts how murder rates vary with the value of the first PCA component for the basic census data--visually, it appears that there is not much correlation.</p>
                    </div>
@@ -256,7 +256,7 @@
                     <h5>Results</h5> 
                     <p>Overall, LASSO regression was the best of all the models we tested, scoring test-set R<sup>2</sup>'s of .006 (basic census data), .01 (all census data), and .5 (all census and crime data), respectively--see the figure at left for more detail.</p>
                     <h5>Observations</h5>
-                       <p>LASSO regression shrunk the coefficients of many predictors in each dataset to 0, which was useful for understanding which predictors are significant. In the basic dataset, the significant predictors included age (VC02-VC09), total population of the MSA (VC01), income (VC45), and year. In the dataset containing all census predictors, 34 different predictors were significant. These included census predictors such as VC35 (marital status), VC28 (number speaking a language other than English at home), and VC42 (number of adults with bachelor's degrees). In the final dataset, which also included observations of crimes other than murder, all crime features were significant besides larceny-theft, along with many census predictors.</p>
+                       <p>LASSO regression shrunk the coefficients of many predictors in each dataset to 0, which was useful for understanding which predictors are important. In the basic dataset, the important predictors (predictors with non-zero coefficients) included age (VC02-VC09), total population of the MSA (VC01), income (VC45), and year. In the dataset containing all census predictors, 34 different predictors were important. These included census predictors such as VC35 (marital status), VC28 (number speaking a language other than English at home), and VC42 (number of adults with bachelor's degrees). In the final dataset, which also included observations of crimes other than murder, all crime features were important besides larceny-theft, along with many census predictors.</p>
                    </div>
                    <div class="subscription">
                                 <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
