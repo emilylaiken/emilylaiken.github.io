@@ -417,8 +417,12 @@
                 </div>
             </div>
                    <div class="about-text">
-                        <h4>Summary of Results</h4>
-                        <p> Our baseline model, a linear regression using only basic census predictors, had a test-set R<sup>2</sup> of XX. Our best model predicting on only census data, XX, had a test-set R<sup>2</sup> of XX. In contrast, our best model using census data plus rates of crimes besides murder had a test-set R<sup>2</sup> of XX. On the whole, the best performing models across all data sets were XX and XX. </p>
+                        <h4>Summary of Model Results</h4>
+                        <p> Our baseline model, a linear regression using only basic census predictors, had a test-set R<sup>2</sup> of 0, so it was no better than predicting each MSA to have the average murder rate of all MSAs. We were able to improve over the base model significantly. Our best model predicting on only basic census data, LASSO regression, had a test-set R<sup>2</sup> of .006, while the best model predicting on all census data, linear regression with PCA, had a test-set R<sup>2</sup> of .017. In contrast, our best model using census data plus rates of crimes besides murder (also LASSO) had a test-set R<sup>2</sup> of .5. On the whole, the best performing models across all data sets was LASSO. Linear regression over a forward-selected set of predictors, linear regression over PCA components, and k-NN regressions also have utility, particularly when predicting on datasets with only census data. Simple linear regression, Ridge regression, regression trees, and random forests are less useful. </p> 
+                        <br />
+
+                        <h4>Significant Predictors</h4>
+                        <p> Three models gave us significant insight into which features are the most important for predicting murder rates: linear regression with forward selection of predictors, LASSO regression, and the random forest. Among basic census predictors, VC01 (population of MSA), VC02-09 (age distribution), and VC45 (income) are important--but they do not prove to be particularly useful, as all of our models were unable to predict well with only the basic dataset. When given all the census data, the most important predictors are VC35 (marriage status) and VC28 (number of people speaking a language other than English at home). When using all census data plus data on crimes other than murder, all crime predictors are significant except for larceny-theft. Many census predictors are also significant, including the above mentioned ones and VC42 (number of adults with bachelor's degrees). We were suprised that race never appeared as a significant predictor, as it is known that people of color are incarcerated at higher rates, but it is possible that this variation is absorbed in other predictors, such as income and education level.</p>
                         <br />
 
                         <h4>Discussion</h4>
@@ -446,20 +450,13 @@
         <section id="footer-section" class="footer-section">
             <div class="container">
                 <div class="row">
+
                     <div class="col-md-3">
-                        <div class="section-heading-2">
-                            <h3 class="section-title">
-                                <span>Data Sources</span>
-                            </h3>
+                        <div class="subscription">
+                                <a href = "#"> <input type="submit" class="btn btn-primary" value="Back to Top"> </a>
                         </div>
-                        
-                        <div class="footer-address">
-                            <ul>
-                                <li class="footer-contact">Crime data: FBI </li>
-                                <li class="footer-contact">Census data: Census</li>
-                            </ul>
-                        </div>
-                    </div><!--/.col-md-3 -->
+                    </div>
+
                     
                     
                     <div class="col-md-3">
@@ -493,15 +490,25 @@
                                 <li class="footer-contact">Final Project</li>
                             </ul>
                         </div>
-                        
                      
                     </div><!--/.col-md-3 -->
-
-                     <div class="col-md-3">
-                        <div class="subscription">
-                                <a href = "#"> <input type="submit" class="btn btn-primary" value="Back to Top"> </a>
+                    
+                    <div class="col-md-3">
+                        <div class="section-heading-2">
+                            <h3 class="section-title">
+                                <span>Data Sources</span>
+                            </h3>
                         </div>
-                    </div>
+                        
+                        <div class="footer-address">
+                            <ul>
+                                <li class="footer-contact">Crime data: <a href="https://ucr.fbi.gov/">FBI</a>
+                                <li class="footer-contact">Census data: <a href=" https:// factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml?refresh=t">American Community Surveys</a>
+                            </ul>
+                        </div>
+                    </div><!--/.col-md-3 -->
+
+                     
                 </div><!--/.row -->
             </div><!-- /.container -->
         </section>

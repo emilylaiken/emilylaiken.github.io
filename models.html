@@ -111,12 +111,7 @@
       <section id="linear-regression" class="about-section">
         <div class="container">
             <div class="row">
-               <div class="col-md-5">
-                   <div class="about-img">
-                       <img src="asset/images/eda1.png" class="img-responsive" alt="About images">
-                   </div>
-               </div>
-               <div class="col-md-7">
+               <div class="col-md-15">
                     <h2>Summary of Modeling Approach and Trajectory</h2>
                     <br />
                    <div class="about-text">
@@ -127,9 +122,9 @@
                         better when using all census predictors and significantly better when using all census predictors plus other crime data. A similar pattern was 
                         observed in the other linear regression-style models we tried, including forward selection of predictors from the simple linear regression, a 
                         linear regression on PCA components, LASSO regression, and Ridge regression. We also tried three quite different styles of models: k-NN 
-                        regression, a regression tree, and a random forrest of regression trees. Ultimately, our most predictive model was XX, which scored a test R2 of 
-                        XX using only basic census predictors, XX using all census predictors, and XX using all census predictors plus other crime data.</p>
+                        regression, a regression tree, and a random forrest of regression trees. Ultimately, our best model overall was LASSO, which scored test R<sup>2</sup>'s of .006 on basic census data, .01 on all census data, and .5 on census data plus crime data other than murders. We were able to improve the R<sup>2</sup> on the set of all census data a bit further, to .012 and then to .017, using linear regression with PCA and k-NN regression, respectively. For a summary of how the performance of models compared, see the figure immediately below. For more details on each model, please scroll down.
                    </div>
+                   <img src="asset/images/allmodels.png" class="img-responsive" alt="About images">
 
                </div>   
             </div>
@@ -147,23 +142,27 @@
             <div class="row">
                <div class="col-md-5">
                    <div class="about-img">
-                       <img src="asset/images/eda1.png" class="img-responsive" alt="About images">
+                       <img src="asset/images/linear.png" class="img-responsive" alt="About images">
                    </div>
                </div>
                <div class="col-md-7">
-                    <h4>Linear Regression</h4>
+                    <h3>Linear Regression</h3>
+                    <br />
                    <div class="about-text">
-                       <p>With the basic predictors, R2 of 0.015 on the training set and XX on the test set. With all census data, .081 on the training set. 
-                        All crimes: .565 on the training set. Stepwise forward selection: basic - just population (HC_01_EST_VC01); on census chose 
-                        VC35 (XX), on all: year, robbery aggravated assault, burglary.  Backward: basic - nothing, census - nothing, robbery, VC41, aggravated assault,
-                        burglary. With selected predictors. r2 is 0 for both for basic, for census is 0 for test and 0.1 for all is .52 on train and .50 for test. 
-                        For backward, .51 for train and .50 for test.</p>
+                    <h5>Process</h5>
+                    <p>We ran a simple linear regression on each of the three datasets (basic census predictors, all census predictors, and census predictors plus crime data)</p>
+
+                    <h5>Results</h5> 
+                    <p>The linear regression performed poorly, wiht test-set R<sup>2</sup>'s of close to 0 for each of the three datasets.</p>
+                    <h5>Observations</h5>
+                       <p>As the datasets became progressively larger, the linear regression's R<sup>2</sup> on the training set improved (of course). However, at the same time, the R<sup>2</sup> on the test set got lower (though remained very close to 0). This pattern is depicted at left. It suggests that the linear regression overfit the training data increasingly as more predictors are added. As a result, we decided to try several other linear regression models with methods to avoid overfitting (forward selection of predictors, PCA, LASSO, and Ridge).</p>
                    </div>
                    <div class="subscription">
                                 <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
                     </div>
                    
-               </div>   
+                   
+               </div>    
             </div>
         </div>
     </section>
@@ -177,20 +176,27 @@
             <div class="row">
                <div class="col-md-5">
                    <div class="about-img">
-                       <img src="asset/images/eda2.png" class="img-responsive" alt="About images">
+                       <img src="asset/images/fwdselection.png" class="img-responsive" alt="About images">
                    </div>
                </div>
                <div class="col-md-7">
-                    <h4>Linear Regression with Forward Selection</h4>
+                    <h3>Linear Regression with Forward Selection</h3>
+                    <br />
                    <div class="about-text">
-                       <p></p>
+                    <h5>Process</h5>
+                    <p>Building on the earlier linear regression model, we performed forward selection of predictors based on model BIC. We ran the forward selection process seperately for each of the three datasets (basic census data, all census data, and census data plus crime data).</p>
+
+                    <h5>Results</h5> 
+                    <p>The forward selection process using only basic predictors chose a dataset with only one predictor (VC01, or MSA population), and had a test-set R<sup>2</sup> of 0. When allowed to use all census data, again only one predictor was used, but this time it was VC35 (marital status); this model had a test-set R<sup>2</sup> of .011. When allowed to use all census data plus crimes, four crime predictors were chosen, and the test-set R<sup>2</sup> was .5. Overall, along with LASSO, forward selection was one of the best models. The coefficients of predictors in each model are depicted at left.</p>
+                    <h5>Observations</h5>
+                       <p>Clearly, linear regression with forward selection is superior to linear regression with all predictors because having fewer predictors eliminates some multicollinearity and overfitting. It is interesting that, when allowed to use all census predictors, martial status (VC35) became an important predictor. Since rates of other crimes are much more highly correlated with murder rates than census predictors are, it is not surprsing that the forward selection process on the entire dataset chose only crime predictors. </p>
                    </div>
                    <div class="subscription">
                                 <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
                     </div>
                    
                    
-               </div>   
+               </div>    
             </div>
         </div>
     </section>
@@ -204,14 +210,20 @@
             <div class="row">
                <div class="col-md-5">
                    <div class="about-img">
-                       <img src="asset/images/eda5.png" class="img-responsive" alt="About images">
+                       <img src="asset/images/pca.png" class="img-responsive" alt="About images">
                    </div>
                </div>
-               <div class="col-md-7">
-                    <h4>Linear Regression on PCA</h4>
+              <div class="col-md-7">
+                    <h3>Linear Regression with PCA</h3>
+                    <br />
                    <div class="about-text">
-                       <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.</p>
-                       <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                    <h5>Process</h5>
+                    <p>For each dataset, we generated the minimum set of PCA components that explained 90% of the variance. We then ran a linear regression on these components.</p>
+
+                    <h5>Results</h5> 
+                    <p>On the set of basic census predictors, the linear regression with PCA peformed poorly, with a test-set R<sup>2</sup> of -.07. However, on the sets of all census predictors and census predicotrs plus crimes it did well relative to other models, with test-set R<sup>2</sup>'s of .017 and .42, respectively.</p>
+                    <h5>Observations</h5> 
+                       <p>PCA does the best of all models on the set of all census predictors. The fact that it performs relatively badly on basic census predictors suggests that these basic predictors are just not highly correlated with murder rates. The scatterplot at right depicts how murder rates vary with the value of the first PCA component for the basic census data--visually, it appears that there is not much correlation.</p>
                    </div>
                    <div class="subscription">
                                 <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
@@ -244,7 +256,7 @@
                     <h5>Results</h5> 
                     <p>Overall, LASSO regression was the best of all the models we tested, scoring test-set R<sup>2</sup>'s of .006 (basic census data), .01 (all census data), and .5 (all census and crime data), respectively--see the figure at left for more detail.</p>
                     <h5>Observations</h5>
-                       <p>LASSO regression shrunk the coefficients of many predictors in each dataset to 0, which was useful for understanding which predictors are significant. In the basic dataset, the significant predictors included age, total population of the MSA, income, and year. The additional non-zero predictors in the dataset of all census predictors were enrollment of young adults in college or graduate school, enrollment of primary school-aged children, poverty status, and the educational attainment level of adults in the population. In the final dataset, which included rates of crimes other than murder, the significant crime-related predictors were rates of robbery, burglary, aggravated assault, violent crime, property crime, and rape (that is, the rates of each crime except for larceny-theft).</p>
+                       <p>LASSO regression shrunk the coefficients of many predictors in each dataset to 0, which was useful for understanding which predictors are significant. In the basic dataset, the significant predictors included age (VC02-VC09), total population of the MSA (VC01), income (VC45), and year. In the dataset containing all census predictors, 34 different predictors were significant. These included census predictors such as VC35 (marital status), VC28 (number speaking a language other than English at home), and VC42 (number of adults with bachelor's degrees). In the final dataset, which also included observations of crimes other than murder, all crime features were significant besides larceny-theft, along with many census predictors.</p>
                    </div>
                    <div class="subscription">
                                 <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
@@ -278,7 +290,7 @@
                     <h5>Results</h5> 
                     <p>Ridge regression did not perform quite as well as LASSO, scoring test-set R<sup>2</sup>'s of .002 (basic census data), -.15 (all census data), and .46 (all census and crime data).
                     <h5>Observations</h5>
-                       <p>It seems that one of the reason Ridge may not score as well as LASSO on the test sets is that is overfits the data more, as suggested by the larger gaps between scores on training and test sets (as compared with LASSO). This tendency to overfit is also consistent with the fact that Ridge does not shrink coefficients to 0 while LASSO does--our dataset has many predictors, and therefore regressions that use all of them are more likely to overfit. The negative R<sup>2</sup> value on the test set for the dataset with all census predictors is also consistent with overfitting (as seen in earlier models such as XX).</p>
+                       <p>It seems that one of the reason Ridge may not score as well as LASSO on the test sets is that is overfits the data more, as suggested by the larger gaps between scores on training and test sets (as compared with LASSO). This tendency to overfit is also consistent with the fact that Ridge does not shrink coefficients to 0 while LASSO does--our dataset has many predictors, and therefore regressions that use all of them are more likely to overfit. The negative R<sup>2</sup> value on the test set for the dataset with all census predictors is also consistent with overfitting (as seen in earlier models, such as the simple linear regression).</p>
                    </div>
                    <div class="subscription">
                                 <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
@@ -312,7 +324,7 @@
                     <h5>Results</h5> 
                     <p>The single regression tree performed quite poorly compared to the linear regression-based models: the test-set $R<sup>2</sup> value for both the census predictor datasets (the basic set and the full set) were below 0. For the dataset with all predictors (census and crime), the single regression tree had a test-set $R<sup>2</sup> of .44.
                     <h5>Observations</h5>
-                       <p>SOMETHING HERE.</p>
+                       <p>The single regression tree does not perform well relative to other models on any of the datasets--perhaps, like the simple linear regression, it suffers from the multicollinearity among the many predictors included.</p>
                    </div>
                    <div class="subscription">
                                 <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
@@ -333,7 +345,7 @@
             <div class="row">
                <div class="col-md-5">
                    <div class="about-img">
-                       <img src="asset/images/forest1.png" class="img-responsive" alt="About images">
+                       <img src="asset/images/forest.png" class="img-responsive" alt="About images">
                    </div>
                </div>
                <div class="col-md-7">
@@ -341,12 +353,12 @@
                    <br />
                    <div class="about-text">
                     <h5>Process</h5>
-                    <p>Building on the single regression tree we had already built, we built a random forest of regression trees, using cross validation to determine the optimal ensemble size one each of thre three datasets. This cross validation process (for the dataset with all predictors, both crime and census--FIX GRAPH TO BE CONSISTENT), is depicted in the figure at left.</p>
+                    <p>Building on the single regression tree we had already built, we built a random forest of regression trees, using cross validation to determine the optimal ensemble size one each of thre three datasets. In each case, the optimal ensemble size was around 10.</p>
 
                     <h5>Results</h5> 
                     <p>Like the single regression tree, the random forest performed quite poorly on all datasets except the one including data for crimes besides murder. Again, both the test-set $R<sup>2</sup> for both the basic and full set of census predictors was below 0 (though not quite as far below as for the single tree). When all predictors, including crime levels, were used, the test set $R<sup>2</sup> was still only .27. 
                     <h5>Observations</h5>
-                       <p>Although the random forest performed poorly, it did give us some insight into which predictors are the most important. XXX</p>
+                       <p>Although the random forest performed relatively poorly, it did give us some insight into which predictors are the most important. The feature importances for the random forest using all predictors (census and crime) is depicted at left. Like in linear regression with forward selection of predictors, robbery is by far the most correlated predictor. Among the census predictors, we see that VC35 (marriage status) and VC28 (number speaking a language other than English at home) are among the important predictors. VC35 was also identified as important by linear regression with forward selection, and both VC35 and VC28 were also identified as important by LASSO.
                    </div>
                    <div class="subscription">
                                 <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
@@ -382,7 +394,7 @@
                     <h5>Results</h5> 
                     <p>The k-NN regression performed the best of all models on the basic census predictors, reaching a test-set R<sup>2</sup> of 0.015. It also performed very well on the dataset with all census predictors, with a test-set R<sup>2</sup> of .012 (though the fact that the test-set R<sup>2</sup> was lower when using more predictors suggests overfitting). Relative to other models, the k-NN regression didn't do as well on the full dataset including both census predictors and crimes other than murder, with a test-set R<sup>2</sup> of only .31. The figure at left depicts the scores of each k-NN model on the respective training and test sets.
                     <h5>Observations</h5>
-                       <p>COMMENT ON NUMS OF NEIGHBORS</p>
+                       <p>k-NN is overall a useful model, and is one of the few that has some reasonable predictive power over the datasets with only census predictors. It is worth noting that the optimal number of neighbors used is quite high (between 80 and 90) for the two datasets with only census predictors. In contrast, only 9 neighbors are used for the dataset with census and crime predictors, suggesting (once again) that there is a much higher correlation between crime predictors and murder rates than between census predictors and murder rates. </p>
                    </div>
                    <div class="subscription">
                                 <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
@@ -405,20 +417,13 @@
         <section id="footer-section" class="footer-section">
             <div class="container">
                 <div class="row">
+
                     <div class="col-md-3">
-                        <div class="section-heading-2">
-                            <h3 class="section-title">
-                                <span>Data Sources</span>
-                            </h3>
+                        <div class="subscription">
+                                <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
                         </div>
-                        
-                        <div class="footer-address">
-                            <ul>
-                                <li class="footer-contact">Crime data: FBI </li>
-                                <li class="footer-contact">Census data: Census</li>
-                            </ul>
-                        </div>
-                    </div><!--/.col-md-3 -->
+                    </div>
+
                     
                     
                     <div class="col-md-3">
@@ -452,15 +457,25 @@
                                 <li class="footer-contact">Final Project</li>
                             </ul>
                         </div>
-                        
                      
                     </div><!--/.col-md-3 -->
-
-                     <div class="col-md-3">
-                        <div class="subscription">
-                                <a href = "index.html"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
+                    
+                    <div class="col-md-3">
+                        <div class="section-heading-2">
+                            <h3 class="section-title">
+                                <span>Data Sources</span>
+                            </h3>
                         </div>
-                    </div>
+                        
+                        <div class="footer-address">
+                            <ul>
+                                <li class="footer-contact">Crime data: <a href="https://ucr.fbi.gov/">FBI</a>
+                                <li class="footer-contact">Census data: <a href=" https:// factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml?refresh=t">American Community Surveys</a>
+                            </ul>
+                        </div>
+                    </div><!--/.col-md-3 -->
+
+                     
                 </div><!--/.row -->
             </div><!-- /.container -->
         </section>
