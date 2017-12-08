@@ -353,12 +353,12 @@
                    <br />
                    <div class="about-text">
                     <h5>Process</h5>
-                    <p>Building on the single regression tree we had already built, we built a random forest of regression trees, using cross validation to determine the optimal ensemble size one each of thre three datasets. In each case, the optimal ensemble size was around 10.</p>
+                    <p>Building on the single regression tree we had already built, we built a random forest of regression trees, using OOB error to determine the optimal ensemble size one each of the three datasets.</p>
 
                     <h5>Results</h5> 
                     <p>Like the single regression tree, the random forest performed quite poorly on all datasets except the one including data for crimes besides murder. Again, both the test-set R<sup>2</sup> for both the basic and full set of census predictors was below 0 (though not quite as far below as for the single tree). When all predictors, including crime levels, were used, the test set R<sup>2</sup> was still only .27. 
                     <h5>Observations</h5>
-                       <p>Although the random forest performed relatively poorly, it did give us some insight into which predictors are the most important. The feature importances for the random forest using all predictors (census and crime) is depicted at left. Like in linear regression with forward selection of predictors, robbery is by far the most correlated predictor. Among the census predictors, we see that VC35 (marriage status) and VC28 (number speaking a language other than English at home) are among the important predictors. VC35 was also identified as important by linear regression with forward selection, and both VC35 and VC28 were also identified as important by LASSO.
+                       <p>Although the random forest performed relatively poorly, it did give us some insight into which predictors are the most important. We used cross-validation to determine the feature importances for the random forest on each dataset--the feature importances on the dataset with all predictors (census and crime) are depicted at left. Like in linear regression with forward selection of predictors, robbery is by far the most correlated predictor. Among the census predictors, we see that VC35 (marriage status) and VC28 (number speaking a language other than English at home) are among the important predictors. VC35 was also identified as important by linear regression with forward selection, and both VC35 and VC28 were also identified as important by LASSO.
                    </div>
                    <div class="subscription">
                                 <a href = "index.html#models"> <input type="submit" class="btn btn-primary" value="Back to Home"> </a>
